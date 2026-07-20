@@ -1,0 +1,40 @@
+# Ambiente virtual
+.venv/
+env/
+venv/
+ENV/
+
+# Arquivos gerados
+inputs/
+outputs/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+*.tmp
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos 3D gerados (opcional, se quiser versionar só o código)
+*.glb
+*.obj
+*.stl
+*.ply
+*.gcode
+
+# Outros
+*.zip
+*.tar.gz
+*.7z
