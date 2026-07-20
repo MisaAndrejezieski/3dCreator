@@ -21,12 +21,25 @@ def processar_imagem(caminho_imagem: str):
     mesh_processor = MeshProcessor()
     mesh_otimizada = mesh_processor.otimizar_para_venda(mesh)
     
-    # 4. Salva o modelo (formato temporário OBJ)
+    # 4. Exporta em MÚLTIPLOS formatos
     nome_base = os.path.splitext(os.path.basename(caminho_imagem))[0]
-    caminho_temp = f"outputs/{nome_base}_temp.obj"
-    mesh_otimizada.export(caminho_temp)
     
-    print(f"\n✅ Modelo gerado: {caminho_temp}")
+    # 4a. GLB (universal, com textura embutida) - MELHOR PARA VENDA
+    caminho_glb = f"outputs/{nome_base}.glb"
+    mesh_otimizada.export(caminho_glb)
+    print(f"   ✅ GLB salvo: {caminho_glb}")
+    
+    # 4b. STL (padrão para impressão 3D)
+    caminho_stl = f"outputs/{nome_base}.stl"
+    mesh_otimizada.export(caminho_stl)
+    print(f"   ✅ STL salvo: {caminho_stl}")
+    
+    # 4c. OBJ (para compatibilidade)
+    caminho_obj = f"outputs/{nome_base}.obj"
+    mesh_otimizada.export(caminho_obj)
+    print(f"   ✅ OBJ salvo: {caminho_obj}")
+    
+    print(f"\n✅ Modelo gerado com sucesso em 3 formatos!")
     print("=" * 50)
     return mesh_otimizada
 
