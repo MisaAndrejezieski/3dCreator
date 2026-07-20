@@ -1,9 +1,7 @@
 import os
-
 from src.depth_estimator import DepthEstimator
 from src.mesh_generator import MeshGenerator
 from src.mesh_processor import MeshProcessor
-
 
 def processar_imagem(caminho_imagem: str):
     """Pipeline completo: imagem → modelo 3D otimizado."""
@@ -23,7 +21,7 @@ def processar_imagem(caminho_imagem: str):
     mesh_processor = MeshProcessor()
     mesh_otimizada = mesh_processor.otimizar_para_venda(mesh)
     
-    # 4. Salva o modelo (formato temporário)
+    # 4. Salva o modelo (formato temporário OBJ)
     nome_base = os.path.splitext(os.path.basename(caminho_imagem))[0]
     caminho_temp = f"outputs/{nome_base}_temp.obj"
     mesh_otimizada.export(caminho_temp)
